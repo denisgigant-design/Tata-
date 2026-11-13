@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b0e">
+  <meta name="description" content="A cinematic 3D car detailing experience. Discover exterior wash, interior care, paint finishing and vehicle valeting services in Dublin.">
+  <title>DUBLIN DETAIL — The Art of a Perfect Finish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <div class="page-track" id="track" aria-hidden="true"></div>
+  <div id="stage" class="stage">
+    <canvas id="webgl" aria-label="Interactive three-dimensional sports car and detailing equipment"></canvas>
+    <div class="fallback-art" aria-hidden="true"><div class="fallback-halo"></div><span>CRAFTED<br>TO SHINE.</span></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="edge-shade" aria-hidden="true"></div>
+    <div class="load-state" id="loadState" role="status" aria-live="polite">
+      <div class="load-mark">D<span>·</span>D</div>
+      <div class="load-track"><div id="loadFill"></div></div>
+      <span id="loadLabel">Preparing the studio</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" id="brandLink" aria-label="Dublin Detail, back to top"><span class="brand-glyph">D<span>·</span>D</span><span class="brand-wordmark">DUBLIN <strong>DETAIL</strong><small>CAR CARE STUDIO</small></span></a>
+    <nav class="desktop-nav" aria-label="Explore the experience">
+      <button type="button" data-jump="0">Studio</button><span class="nav-separator"></span>
+      <button type="button" data-jump="0.25">Wash</button><span class="nav-separator"></span>
+      <button type="button" data-jump="0.49">Interior</button><span class="nav-separator"></span>
+      <button type="button" data-jump="0.71">Finish</button>
+    </nav>
+    <button type="button" class="header-cta" id="headerCta">EXPLORE SERVICES <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <div class="chapter-index" aria-hidden="true"><span id="chapterNumber">01</span><div class="index-line"></div><span>05</span></div>
+  <div class="side-label" aria-hidden="true">A DIFFERENT KIND OF DETAILING EXPERIENCE <span class="label-cross">✳</span> DUBLIN, IRELAND</div>
+
+  <main class="experience" id="top">
+    <section class="chapter is-active" data-chapter="0" aria-labelledby="title0">
+      <p class="eyebrow"><span class="eyebrow-line"></span> INTRODUCING DUBLIN DETAIL <span class="eyebrow-id">01 / 05</span></p>
+      <h1 id="title0">THE ART<br>OF <em>ARRIVING</em><br>FLAWLESS.</h1>
+      <p class="chapter-description">Every curve, every reflection, every detail. An uncompromising approach to the way your car looks and feels.</p>
+      <div class="chapter-extra"><span class="vertical-rule"></span><span>PREMIUM CAR CARE<br>REIMAGINED IN 3D</span></div>
+    </section>
+    <section class="chapter" data-chapter="1" aria-labelledby="title1">
+      <p class="eyebrow"><span class="eyebrow-line"></span> 01 — EXTERIOR CARE <span class="eyebrow-id">02 / 05</span></p>
+      <h2 id="title1">WATER.<br>LIGHT.<br><em>RENEWAL.</em></h2>
+      <p class="chapter-description">A meticulous exterior wash. Water travels over each sculpted line as the finish comes back to life.</p>
+      <div class="micro-tag">INTERACTIVE 3D WATER SPRAY <span>↗</span></div>
+    </section>
+    <section class="chapter" data-chapter="2" aria-labelledby="title2">
+      <p class="eyebrow"><span class="eyebrow-line"></span> 02 — INTERIOR CARE <span class="eyebrow-id">03 / 05</span></p>
+      <h2 id="title2">BEYOND<br>WHAT YOU<br><em>CAN SEE.</em></h2>
+      <p class="chapter-description">Interior attention is the part you feel. From fine dust to the spaces most people never notice.</p>
+      <div class="micro-tag">SEE THE REAL 3D VACUUM <span>↗</span></div>
+    </section>
+    <section class="chapter" data-chapter="3" aria-labelledby="title3">
+      <p class="eyebrow"><span class="eyebrow-line"></span> 03 — FINISHING TOUCHES <span class="eyebrow-id">04 / 05</span></p>
+      <h2 id="title3">CHASE THE<br>PERFECT<br><em>REFLECTION.</em></h2>
+      <p class="chapter-description">Beautiful paintwork is all about the light. Change the body colour and watch the reflections transform.</p>
+      <div class="color-palette" id="paintPalette" aria-label="Change the car paint colour">
+        <button class="paint-swatch is-selected" data-color="obsidian" aria-label="Obsidian paint" title="Obsidian"><span></span></button>
+        <button class="paint-swatch" data-color="silver" aria-label="Liquid silver paint" title="Liquid silver"><span></span></button>
+        <button class="paint-swatch" data-color="copper" aria-label="Copper paint" title="Copper"><span></span></button>
+        <span class="swatch-caption" id="swatchCaption">OBSIDIAN</span>
+      </div>
+    </section>
+    <section class="chapter chapter-final" data-chapter="4" aria-labelledby="title4">
+      <p class="eyebrow"><span class="eyebrow-line"></span> MAKE IT YOURS <span class="eyebrow-id">05 / 05</span></p>
+      <h2 id="title4">CHOOSE<br>YOUR <em>FINISH.</em></h2>
+      <p class="chapter-description">From a quick refresh to a complete transformation. Choose a service to see what's included.</p>
+      <div class="final-hint"><span class="pulse-dot"></span> SELECT A SERVICE TO EXPLORE</div>
+    </section>
+  </main>
+
+  <div class="hotspot-layer" id="hotspotLayer" aria-label="Explore details of the vehicle">
+    <button type="button" class="world-pin" id="pinWash" data-pin="wash"><span class="pin-dot"></span><span class="pin-label">EXTERIOR WASH <b>↗</b></span></button>
+    <button type="button" class="world-pin" id="pinVacuum" data-pin="vacuum"><span class="pin-dot"></span><span class="pin-label">INTERIOR DETAIL <b>↗</b></span></button>
+    <button type="button" class="world-pin" id="pinPolish" data-pin="polish"><span class="pin-dot"></span><span class="pin-label">PAINT FINISH <b>↗</b></span></button>
+  </div>
+
+  <div class="services" id="services" aria-label="Detailing services">
+    <button type="button" class="service-item" data-service="mini"><span class="service-index">01</span><span class="service-copy"><strong>Mini Valet</strong><small>THE ESSENTIAL REFRESH</small></span><span class="service-price">€90</span><span class="service-arrow">↗</span></button>
+    <button type="button" class="service-item" data-service="full"><span class="service-index">02</span><span class="service-copy"><strong>Full Valet</strong><small>THE COMPLETE EXPERIENCE</small></span><span class="service-price">€150</span><span class="service-arrow">↗</span></button>
+    <button type="button" class="service-item" data-service="extras"><span class="service-index">03</span><span class="service-copy"><strong>Finishing Extras</strong><small>RESTORATION &amp; POLISH</small></span><span class="service-price service-on-request">ASK US</span><span class="service-arrow">↗</span></button>
+  </div>
+
+  <div class="footer-ui" aria-label="Scroll progress">
+    <div class="scroll-hint" id="scrollHint"><div class="mouse-icon"><div></div></div><span>SCROLL TO EXPLORE</span></div>
+    <div class="timeline" id="timeline"><div class="timeline-progress" id="timelineProgress"></div><div class="timeline-marks"><button data-jump="0" class="is-current" aria-label="Go to introduction"></button><button data-jump="0.25" aria-label="Go to exterior wash"></button><button data-jump="0.49" aria-label="Go to interior detail"></button><button data-jump="0.71" aria-label="Go to finishing touches"></button><button data-jump="0.94" aria-label="Go to services"></button></div></div>
+    <div class="scroll-count"><span id="percentage">000</span><span class="percent-symbol">%</span></div>
+  </div>
+
+  <div class="service-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="service-drawer" id="serviceDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
+    <div class="drawer-top"><span class="drawer-kicker">DUBLIN DETAIL — SERVICE NOTES</span><button type="button" id="closeDrawer" class="close-drawer" aria-label="Close service details">×</button></div>
+    <div class="drawer-number" id="drawerNumber">01 / 03</div>
+    <h2 id="drawerTitle">Mini Valet</h2><p class="drawer-subtitle" id="drawerSubtitle">A considered refresh.</p>
+    <div class="drawer-price" id="drawerPrice">€90</div>
+    <div class="drawer-divider"></div>
+    <p class="inclusions-label">ILLUSTRATIVE SERVICE INCLUSIONS</p><ul class="drawer-list" id="drawerList"></ul>
+    <p class="drawer-note">Service inclusions are examples to confirm with the business. This is a demo site; no booking or payment is processed.</p>
+    <button type="button" class="select-service" id="copySelection">COPY ENQUIRY DETAILS <span aria-hidden="true">↗</span></button><p class="copied-label" id="copiedLabel" role="status"></p>
+  </aside>
+  <div class="noscript-banner"><noscript>Enable JavaScript to explore the interactive 3D studio and services.</noscript></div>
+
+  <script type="module" src="./script.js"></script>
+  <!-- If the remote Three.js module cannot load, do not trap visitors on the loading overlay. -->
+  <script>
+    window.setTimeout(function () {
+      var el = document.getElementById('loadState');
+      if (el && !el.classList.contains('is-done')) {
+        var label = document.getElementById('loadLabel');
+        if (label) label.textContent = '3D loading unavailable — check internet connection';
+        el.classList.add('is-done');
+      }
+    }, 18000);
+  </script>
+</body>
+</html>
